@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "24795dfa3443af4e3341fbe741fad572",
+    "revision": "07d97e1191a199da59c78818bd2448df",
     "url": "/knowtnet-react/index.html"
   },
   {
-    "revision": "f56940b72d73079588b3",
+    "revision": "51a9f28d18f5346797b4",
     "url": "/knowtnet-react/static/css/main.d1b05096.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/knowtnet-react/static/js/2.639f6d06.chunk.js.LICENSE"
   },
   {
-    "revision": "f56940b72d73079588b3",
-    "url": "/knowtnet-react/static/js/main.4f617bc7.chunk.js"
+    "revision": "51a9f28d18f5346797b4",
+    "url": "/knowtnet-react/static/js/main.4470b8a2.chunk.js"
   },
   {
     "revision": "4e93b0a7551b8ee2cbbb",

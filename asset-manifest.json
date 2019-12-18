@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/knowtnet-react/static/css/main.d1b05096.chunk.css",
-    "main.js": "/knowtnet-react/static/js/main.4f617bc7.chunk.js",
-    "main.js.map": "/knowtnet-react/static/js/main.4f617bc7.chunk.js.map",
+    "main.js": "/knowtnet-react/static/js/main.4470b8a2.chunk.js",
+    "main.js.map": "/knowtnet-react/static/js/main.4470b8a2.chunk.js.map",
     "runtime-main.js": "/knowtnet-react/static/js/runtime-main.b8a91a84.js",
     "runtime-main.js.map": "/knowtnet-react/static/js/runtime-main.b8a91a84.js.map",
     "static/js/2.639f6d06.chunk.js": "/knowtnet-react/static/js/2.639f6d06.chunk.js",
     "static/js/2.639f6d06.chunk.js.map": "/knowtnet-react/static/js/2.639f6d06.chunk.js.map",
     "index.html": "/knowtnet-react/index.html",
-    "precache-manifest.cd638122755fcf673768cecb7a44abdc.js": "/knowtnet-react/precache-manifest.cd638122755fcf673768cecb7a44abdc.js",
+    "precache-manifest.eaf4fa6a701bd8e6e1a5050b1935ce09.js": "/knowtnet-react/precache-manifest.eaf4fa6a701bd8e6e1a5050b1935ce09.js",
     "service-worker.js": "/knowtnet-react/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/knowtnet-react/static/css/main.d1b05096.chunk.css.map",
     "static/js/2.639f6d06.chunk.js.LICENSE": "/knowtnet-react/static/js/2.639f6d06.chunk.js.LICENSE",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.b8a91a84.js",
     "static/js/2.639f6d06.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.4f617bc7.chunk.js"
+    "static/js/main.4470b8a2.chunk.js"
   ]
 }
