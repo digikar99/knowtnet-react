@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/knowtnet-react/precache-manifest.4853d8294f99233acce806593d5fd9c7.js"
+  "/knowtnet-react/precache-manifest.cd638122755fcf673768cecb7a44abdc.js"
 );
 
 self.addEventListener('message', (event) => {

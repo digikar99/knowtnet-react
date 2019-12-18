@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/knowtnet-react/static/css/main.d1b05096.chunk.css",
-    "main.js": "/knowtnet-react/static/js/main.693502d0.chunk.js",
-    "main.js.map": "/knowtnet-react/static/js/main.693502d0.chunk.js.map",
+    "main.js": "/knowtnet-react/static/js/main.4f617bc7.chunk.js",
+    "main.js.map": "/knowtnet-react/static/js/main.4f617bc7.chunk.js.map",
     "runtime-main.js": "/knowtnet-react/static/js/runtime-main.b8a91a84.js",
     "runtime-main.js.map": "/knowtnet-react/static/js/runtime-main.b8a91a84.js.map",
-    "static/js/2.c4fd95b8.chunk.js": "/knowtnet-react/static/js/2.c4fd95b8.chunk.js",
-    "static/js/2.c4fd95b8.chunk.js.map": "/knowtnet-react/static/js/2.c4fd95b8.chunk.js.map",
+    "static/js/2.639f6d06.chunk.js": "/knowtnet-react/static/js/2.639f6d06.chunk.js",
+    "static/js/2.639f6d06.chunk.js.map": "/knowtnet-react/static/js/2.639f6d06.chunk.js.map",
     "index.html": "/knowtnet-react/index.html",
-    "precache-manifest.4853d8294f99233acce806593d5fd9c7.js": "/knowtnet-react/precache-manifest.4853d8294f99233acce806593d5fd9c7.js",
+    "precache-manifest.cd638122755fcf673768cecb7a44abdc.js": "/knowtnet-react/precache-manifest.cd638122755fcf673768cecb7a44abdc.js",
     "service-worker.js": "/knowtnet-react/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/knowtnet-react/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.c4fd95b8.chunk.js.LICENSE": "/knowtnet-react/static/js/2.c4fd95b8.chunk.js.LICENSE",
+    "static/js/2.639f6d06.chunk.js.LICENSE": "/knowtnet-react/static/js/2.639f6d06.chunk.js.LICENSE",
     "static/media/logo.svg": "/knowtnet-react/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b8a91a84.js",
-    "static/js/2.c4fd95b8.chunk.js",
+    "static/js/2.639f6d06.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.693502d0.chunk.js"
+    "static/js/main.4f617bc7.chunk.js"
   ]
 }
