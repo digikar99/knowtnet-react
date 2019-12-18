@@ -45,6 +45,9 @@ class Page extends React.Component {
         for(var i=0; i<maxInt; i++) list.push(i);
         return list;
     }
+    randInt(maxInt){
+        return Math.floor(maxInt*Math.random());
+    }
     componentDidMount(){
         window.addEventListener(
             'scroll',
@@ -69,8 +72,10 @@ class Page extends React.Component {
         console.log(this.state);
     }
     getLinkIdToGet(){
-        const id = this.state.fetchableLinks[1];
-        this.setState({fetchableLinks: [0].concat(this.state.fetchableLinks.slice(2))});
+        const index = 1+this.randInt(this.state.fetchableLinks.length-1);
+        const id = this.state.fetchableLinks.splice(index, 1);
+        const newFetchAbleLinks = this.state.fetchableLinks;
+        this.setState({fetchableLinks: newFetchAbleLinks});
         return id;
     }
     getLinkFromServer(){
@@ -150,14 +155,14 @@ class Page extends React.Component {
         this.setState({menuIsOpen: !this.state.menuIsOpen});
     }
     clearKnownLinks(){
-        const noKnownLinks = this.iota(1+numLinks).map((id) => 0)
+        const noKnownLinks = this.iota(1+numLinks).map((id) => 0);
         localStorage[knownLinksVarName] = noKnownLinks;
         this.setState({knownLinks: noKnownLinks});
         window.location.reload();
     }
     render(props){
-        console.log(this.props);
-        console.log("about", this.props.aboutPage);
+        console.log(this.state);
+        // console.log("about", this.props.aboutPage);
         return (
             <div>
               <InfoPanel
