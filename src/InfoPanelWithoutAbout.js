@@ -1,4 +1,10 @@
 import React from 'react';
+import  {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 var serverData = require('./serverData.json');
 
 // FilterForm.updateSelectedtheme is to be updated
@@ -68,9 +74,9 @@ class InfoPanelMenu extends React.Component {
               <a href={serverData['front-page']}>Home</a>
               <a id="toggle-known-btn" onClick={this.props.toggleKnown}>
                 View {this.props.known ? "Unknown" : "Known"} Links</a>
-              <a href={serverData['about-page']}>About Us</a>
+              <Link to={serverData['about-page']}>About Us</Link>
               <div id="info-panel-spacer"></div>
-              <a onClick="clearKnownLinks()">Clear Known Links</a>
+              <a onClick={this.props.clearKnownLinks}>Clear Known Links</a>
               <p id="ktn" className="text-center">Knowledge Transfer Network</p>
             </div>
         );
@@ -89,7 +95,8 @@ class InfoPanelWithoutAbout extends React.Component {
               <div id="username" className="text-center">Welcome to KnowTNet</div>
               <InfoPanelMenu isOpen={this.props.menuIsOpen}
                              toggleKnown={this.props.toggleKnown}
-                             known={this.props.known}/>
+                             known={this.props.known}
+                             clearKnownLinks={this.props.clearKnownLinks}/>
             </div>
         );   
     }

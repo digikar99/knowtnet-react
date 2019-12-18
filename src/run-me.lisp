@@ -63,7 +63,8 @@
                                  "about-page" "about.html"
                                  "theme-list" (mapcar #'theme-name themes)
                                  "theme-link-id-list-map" *theme-link-id-list-hash-table*
-                                 "num-links" (length links)}
+                                 "num-links" (length links)
+                                 "about" *about-text*}
                          f))
   (format t "Done!~%"))
 

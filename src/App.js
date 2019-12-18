@@ -1,7 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import InfoPanel from './InfoPanel';
 import BrowseLinkBoxes from './BrowseLinkBoxes';
 import logo from './logo.svg';
+import ReactHtmlParser from 'react-html-parser';
 import './App.css';
 
 var $ = require('jquery');
@@ -11,7 +13,7 @@ const knownLinksVarName= "known";
 const themeLinkIdListMap = serverData["theme-link-id-list-map"];
 var effortCount = 2; // try twice to make scrollable
 
-class App extends React.Component {
+class Page extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -36,6 +38,7 @@ class App extends React.Component {
         this.isKnown = this.isKnown.bind(this);
         this.toggleKnown = this.toggleKnown.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.clearKnownLinks = this.clearKnownLinks.bind(this);
     }
     iota(maxInt){
         var list = [];
@@ -146,31 +149,65 @@ class App extends React.Component {
     toggleMenu(){
         this.setState({menuIsOpen: !this.state.menuIsOpen});
     }
-    render(){
-        
+    clearKnownLinks(){
+        const noKnownLinks = this.iota(1+numLinks).map((id) => 0)
+        localStorage[knownLinksVarName] = noKnownLinks;
+        this.setState({knownLinks: noKnownLinks});
+        window.location.reload();
+    }
+    render(props){
+        console.log(this.props);
+        console.log("about", this.props.aboutPage);
         return (
             <div>
               <InfoPanel
-                aboutPage="null"
+                aboutPage={this.props.aboutPage}
                 id="responsive-info-panel"
                 updateSelectedTheme={this.updateSelectedTheme}
                 toggleKnown={this.toggleKnown}
                 known={this.state.known}
                 toggleMenu={this.toggleMenu}
                 menuIsOpen={this.state.menuIsOpen}
+                clearKnownLinks={this.clearKnownLinks}
                 />
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <BrowseLinkBoxes id="responsive-browse-link-boxes"
-                               links={this.state.links}
-                               remove={this.removeLink}
-                               markAsKnownAndRemoveLink={this.markAsKnownAndRemoveLink}
-                               />
+              {this.props.aboutPage
+                  ? ReactHtmlParser(this.props.aboutPage)
+                  : (
+                      <span>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <BrowseLinkBoxes
+                          id="responsive-browse-link-boxes"
+                          links={this.state.links}
+                          remove={this.removeLink}
+                          markAsKnownAndRemoveLink={this.markAsKnownAndRemoveLink}
+                          />
+                      </span>
+                  )
+              }
             </div>
         );
     }
+}
+
+class App extends React.Component{
+    render(){
+        return (
+            <Router>
+              <Switch>
+                <Route path={"/"+serverData["about-page"]}>
+                  <Page aboutPage={serverData["about"]}/>
+                </Route>
+                <Route path="/">
+                  <Page aboutPage={null}/>
+                </Route>
+              </Switch>
+            </Router>
+        );
+    }
+    
 }
 
 export default App;

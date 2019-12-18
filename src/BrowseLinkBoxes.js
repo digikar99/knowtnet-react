@@ -3,13 +3,32 @@ import ReactHtmlParser from 'react-html-parser';
 var serverData = require('./serverData.json');
 
 class BrowseLinkBox extends React.Component{
-
+    constructor(props){
+        super(props);
+        this.shareLink = this.shareLink.bind(this);
+    }
     pingAndOpen(url){
         console.log(url);
         window.open(url);
     }
-    shareLink(elt){
-        
+    shareLink(url){
+        if (navigator.share){
+            this.props.showLoader();
+            navigator
+                .share({
+                    text: this.props.title,
+                    url: this.props.url
+                })
+                .then(this.props.hideLoader)
+                .catch((e)=>{
+                    console.log(e);
+                    this.props.hideLoader();
+                });
+        }else{
+            navigator.clipboard
+                .writeText(this.props.url)
+                .then(()=>{}, (e)=>console.log(e));
+        }
     }
 
     render(props){
@@ -50,7 +69,7 @@ class BrowseLinkBox extends React.Component{
                 </div>
                 <div className="link-share">
                   <i className="material-icons-outlined link-share-icon"
-                     onClick={this.shareLink(this.props.url)}>
+                     onClick={(e)=>this.shareLink(this.props.url)}>
                     share
                     <span className="link-share-tooltip">COPY LINK</span>
                   </i>
@@ -62,18 +81,39 @@ class BrowseLinkBox extends React.Component{
     }
 }
 
+class Loader extends React.Component{
+    render(){
+        return (
+            this.props.displayLoader
+                ? <div id="loader-background"><div id="loader"/></div>
+                : null
+        );   
+    }
+}
+
 class BrowseLinkBoxes extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            themeLinkIdListMap: serverData['theme-link-id-list-map']
+            themeLinkIdListMap: serverData['theme-link-id-list-map'],
+            displayLoader: false
         };
+        this.showLoader = this.showLoader.bind(this);
+        this.hideLoader = this.hideLoader.bind(this);
+    }
+    showLoader() {
+        this.setState({displayLoader: true});
+    };
+    hideLoader(){
+        this.setState({displayLoader: false});
     }
     render(props){
         const removeMethod = this.props.remove;
         const markAsKnownAndRemoveLink = this.props.markAsKnownAndRemoveLink;
+        const self=this;
         return(
             <div id={this.props.id}>
+              <Loader displayLoader={this.state.displayLoader}/>
               {this.props.links.map(function(link){
                   // console.log(link);
                   return (
@@ -85,7 +125,9 @@ class BrowseLinkBoxes extends React.Component{
                                      key={link.id}
                                      theme={link.theme}
                                      remove={removeMethod}
-                                     markAsKnownAndRemoveLink={markAsKnownAndRemoveLink}/>
+                                     markAsKnownAndRemoveLink={markAsKnownAndRemoveLink}
+                                     showLoader={self.showLoader}
+                                     hideLoader={self.hideLoader}/>
                   );    
               })}
             </div>
